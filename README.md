@@ -1,9 +1,6 @@
-# Ionic/Angular Base-Application
-This Base-Application uses common parts of Ionic/Angular Apps ready to use.
+# agri Mobile
 
-Key-Features:
-- Bottom Navigation Menu
-- Hamburger Menu
-- Tutorial/Onboarding
-- and many more
+This project is currently in development. You'll find a working demo at https://agri-ch.web.app.
+
+Please take note that this App is not intended with fenaco Genossenschaft, Landi or Agrola. It is an inofficial App.
 
