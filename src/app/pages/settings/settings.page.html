@@ -1,0 +1,94 @@
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Einstellungen</ion-title>
+    </ion-toolbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Einstellungen</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>
+        Kartenverwaltung
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngIf="cards.length >= 1; noCards">
+        Du kannst hier Karten löschen, welche Du nicht mehr benötigst oder welche abgelaufen sind.
+        <br><br>
+        <ion-list *ngFor="let card of cards; let i = index">
+          <ion-item>
+            <ion-icon (click)="deleteCard(i)" slot="end" color="danger" name="trash-outline"></ion-icon>
+            <ion-label>{{ card.description }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div *ngIf="cards.length == 0">
+
+       Du hast keine Karten hinzugefügt. Daher kannst Du keine löschen.
+</div>
+
+    </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          Couponverwaltung
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div  *ngIf="coupons.length >= 1; noCoupons">
+          Du kannst hier Coupons löschen, welche Du nicht mehr benötigst oder welche abgelaufen sind.
+          <br><br>
+          <ion-list *ngFor="let coupon of coupons; let i = index">
+            <ion-item>
+              <ion-icon (click)="deleteCoupon(i)" slot="end" color="danger" name="trash-outline"></ion-icon>
+              <ion-label>{{ coupon.description }}</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div *ngIf="coupons.length == 0">
+
+          Du hast keine Coupons hinzugefügt. Daher kannst Du keine löschen.
+   </div>
+      </ion-card-content>
+      </ion-card>
+
+      
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          Datenschutz
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Lösche alle nutzerbezogenen Daten (Coupons und Karten) aus der App. 
+        <b>
+          Dieser Schritt kann nicht rückgängig gemacht werden!
+        </b>
+        <br><br>
+        <ion-button expand="block" (click)="clearStorage()">In die Tonne damit!</ion-button>
+
+      </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-content>
+          &copy; 2021 - Dominik Ponniah
+          <br><br>
+          <b>Diese App ist kein offizielles Produkt der Agrola, Landi oder Fenaco. </b>
+            Es handelt sich um eine private Anwendung, welche Dich beim Tanken und Einkaufen unterstüzt.
+        </ion-card-content>
+        </ion-card>
+
+</ion-content>

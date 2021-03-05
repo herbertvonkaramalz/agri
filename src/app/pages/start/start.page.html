@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Start</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ greeting }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button  (click)="addCard()">
+        <ion-icon name="card-outline"></ion-icon>      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="start">
+      <ion-fab-button class="fabText" (click)="addCoupon()">
+        <ion-icon name="remove-circle-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-card>
+
+
+    <ion-card-header>
+      <ion-card-subtitle *ngIf="cards.length > 1">DEINE GUTHABEN</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="cards.length == 1">DEIN GUTHABEN</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="cards.length == 0">Hier ist es leer.</ion-card-subtitle>
+
+
+    </ion-card-header>
+
+    <ion-card-content>
+      <div *ngIf="cards.length == 0">
+        Füge eine Geschenkkarte oder einen Coupon hinzu. Diese werden dann hier angezeigt, damit Du diese benutzen kannst.
+      </div>
+
+      <div *ngIf="cards.length >= 1">
+      
+        <ion-grid>
+          <ion-row>
+            <ion-col style="font-size: 30px; font-weight: bold;">
+              {{ totalBalance }} CHF
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              Zuletzt aktualisiert: {{ lastUpdate | date: 'HH:mm'}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+
+  <div class="cards" *ngFor="let card of cards; let i = index">
+    <ion-card class="cardHolder" (click)="showCardOptions(i)">
+      <div class="cardInfo" *ngIf="card.showCardInfo">
+        <div class="balance">
+          {{ card.balance }} CHF
+        </div>
+        <div class="validThru">
+          {{ card.validThru }}
+        </div>
+        <div class="cardNumberWrapper">
+          <div class="cardDescription">
+            {{ card.description }}
+          </div>
+          <div class="cardNumber">
+            {{ card.cardNumber }}
+          </div>
+        </div>
+      </div>
+      <div class="barcodeBucket" *ngIf="!card.showCardInfo">
+        Lasse den Code an der Kasse scannen.<br><br>
+        <img class="barcode" [src]="card.barcode" alt="barcode">
+      </div>
+    </ion-card>
+  </div>
+
+  <div class="cards" *ngFor="let coupon of coupons; let i = index">
+    <ion-card class="couponHolder" (click)="showCouponOptions(i)">
+      <div class="cardInfo" *ngIf="!coupon.showBarcode">
+        <div class="balance">
+          {{ coupon.discount }} Rabatt
+        </div>
+        <div class="cardNumberWrapper">
+          <div class="cardDescription">
+            {{ coupon.description }}<br>
+            Gültig bis {{ coupon.validThru | date: 'dd.MM.yyyy'}}
+          </div>
+        </div>
+      </div>
+      <div class="barcodeBucket" *ngIf="coupon.showBarcode">
+        Lasse den Code an der Kasse scannen.<br><br>
+        <img class="barcode" [src]="coupon.barcode" alt="barcode">
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

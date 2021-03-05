@@ -1,0 +1,46 @@
+<ion-content fullscreen="true">
+  <ion-slides #slides  pager="false">
+    <ion-slide>
+      <img src="assets/img/undraw/car.svg" class="slide-image undraw" />
+      <h2 class="slide-title">Hallo!</h2>
+      <p>Willkommen bei <span style="color: #0aa00a">agri</span>! <br>Deinem Agrola-Kartenassistent.</p>
+      <ion-button fill="clear" (click)="nextSlide()">
+        Weiter
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/img/undraw/mobileapp.svg" class="slide-image undraw" />
+      <h2 class="slide-title">Alle Agrola-Dienste in einer App.</h2>
+      <p>Füge Geschenkkarten, Coupons oder auch dein Kundenkonto der App hinzu.</p>
+      <ion-button fill="clear" (click)="nextSlide()">
+        Weiter
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/img/undraw/shopping.svg" class="slide-image undraw" />
+      <h2 class="slide-title">Sei schneller</h2>
+      <p>Lass dein Portemonnaie im Auto oder zu Hause!<br>
+      Bezahle direkt mit dem Smartphone.</p>
+      <ion-button fill="clear" (click)="nextSlide()">
+        Weiter
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/img/undraw/security.svg" class="slide-image undraw" />
+      <h2 class="slide-title">Sicher.</h2>
+      <p>Alle Daten bleiben in der agri-App. <br>
+        <b>Beachte aber: Die App ist nicht offiziell!</b>
+      </p>
+      <ion-button fill="clear" (click)="finishTutorial()">
+        Los geht's!
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

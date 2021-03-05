@@ -1,0 +1,7 @@
+{
+  "name": "ionic-sample-app",
+  "type": "angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

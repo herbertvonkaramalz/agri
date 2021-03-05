@@ -1,0 +1,43 @@
+// Set color of Toolbar to transparent. So that it is not visible.
+ion-toolbar {
+  --background: transparent;
+  --border-color: transparent;
+}
+
+// To use the complete space of the screen, the Slides should be set as display:block.
+.swiper-slide {
+  display: block;
+}
+
+// Margin from element above for title-elements: 2.8rem (relative to default font-size)
+.slide-title {
+  margin-top: 2.8rem;
+}
+
+// Set size-settings for images displayed in the upper device-screen
+.slide-image {
+  max-height: 50%;
+  max-width: 60%;
+  margin: 36px 0;
+}
+
+// Make the bold-text a bit bolder.
+b {
+  font-weight: 500;
+}
+
+
+p {
+  // Make text more readable and display it user-friendly.
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 1.5;
+
+  // Default paragraphs should be grey
+  color: var(--ion-color-step-600, #60646b);
+
+  // Bold text should be deep black
+  b {
+    color: var(--ion-text-color, #000000);
+  }
+}

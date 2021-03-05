@@ -1,0 +1,73 @@
+.cardHolder {
+    background-image: linear-gradient(to right bottom, #0aa00a, #5eb600, #95ca00, #c9de00, #fff000);
+    min-height: 215px;
+    max-height: 215px;
+    border-radius: 20px;
+
+    padding: 20px;
+}
+
+.couponHolder {
+    background: #159957; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #159957, #155799); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #159957, #155799); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    min-height: 215px;
+    max-height: 215px;
+    border-radius: 20px;
+
+    padding: 20px;
+}
+
+.fabText {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.cards {
+    position: relative;
+
+    ion-card {
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+
+        .barcodeBucket {
+            text-align: center;
+
+            .barcode {
+                margin-top: calc(30% - 75px);
+                height: 90px;
+                background-color: white;
+                padding: 10px;
+            }
+        }
+
+
+        .validThru {
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .cardNumberWrapper {
+            position: absolute;
+            bottom: 20px;
+
+            .cardDescription {
+                color: white;
+                font-size: 17px;
+                font-weight: bold;
+            }
+            .cardNumber {
+                color: white;
+                font-size: 17px;
+                font-weight: bold;
+            }
+
+        }
+    }
+}
